@@ -6,11 +6,17 @@ ruby '3.0.2'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.6'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3', '~> 1.4'
+# gem 'sqlite3', '~> 1.4'
+
+# Use postgres for db support
+gem 'pg', '~> 1.3', '>= 1.3.5'
 # Use Puma as the app server
 gem 'puma', '~> 5.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
+gem 'bootstrap-sass', '~> 3.4', '>= 3.4.1'
+# User auth
+gem 'devise', '~> 4.8', '>= 4.8.1'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
 gem 'webpacker', '~> 5.0'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
@@ -42,6 +48,8 @@ group :development do
   gem 'listen', '~> 3.3'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+  # local ENV vars
+  gem "figaro"
 end
 
 group :test do
@@ -54,3 +62,13 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+# upload image
+gem 'carrierwave', '~> 2.2', '>= 2.2.2'
+gem 'fog'
+gem 'fog-core'
+
+# resize image
+gem 'mini_magick', '~> 4.11'
+
+gem 'rmagick'

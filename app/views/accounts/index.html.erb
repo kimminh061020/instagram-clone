@@ -1,0 +1,23 @@
+<div class="container">
+<div class="row">
+<div class="col-8">
+<% @posts.each do |post| %>
+    <div class="insta-post">
+<div class="meta-post">
+<%= link_to image_tag(post.account.image.thumb_post.url, class: "img-circle profile-pic-post") , profile_path(post.account.username) %>
+<%= link_to post.account.username, profile_path(post.account.username), class: "username-link" %>
+</div>
+<%= image_tag post.image.url, class: "img img-fluid" %>
+</div>
+<% end %>
+</div>
+<div class="col-4">
+<div class="account-summary">
+<p><strong><%= current_account.username %></strong> </br>
+<%= current_account.full_name %></p>
+</div>
+<div class="account-suggestion">
+</div>
+</div>
+</div>
+</div>
