@@ -8,4 +8,6 @@ Rails.application.routes.draw do
 
   resources :posts, only: [:new,:show,:create]
   root to: "public#homepage"
+
+  get '/user' => "accounts#index", :as => :user_root
 end

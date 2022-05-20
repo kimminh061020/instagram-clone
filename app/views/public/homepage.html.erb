@@ -13,20 +13,32 @@
             <div class="sign-in">
                 <div class="logo-container">
                     <div ria-disabled="false" role="button" tabindex="0" style="cursor: pointer;">
-                        <img src="https://www.instagram.com/static/images/web/logged_out_wordmark.png/7a252de00b20.png" srcset="/static/images/web/logged_out_wordmark-2x.png/d2529dbef8ed.png 2x" alt="instagram">
+                        <img src="https://www.instagram.com/static/images/web/logged_out_wordmark.png/7a252de00b20.png" srcset="https://www.instagram.com/static/images/web/logged_out_wordmark-2x.png/d2529dbef8ed.png 2x" alt="instagram">
                     </div>
                 </div>
                 <div class="sign-in-form-container">
                     <%= render "devise/sessions/new.html.erb" %>
                 </div>
+                <div class="forgot-password">
+                    <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+                      <%= link_to "Forgot your password?", new_password_path(resource_name), class: "forgot-password-link" %><br />
+                    <% end %>
+                </div>
             </div>
             <div class="sign-up">
-
+                <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+                <div class="sign-up-text">Don't have an account? <%= link_to "Sign up", new_registration_path(resource_name) %></div><br />
+                <% end %>
             </div>
             <div class="platforms">
-
+                <p class="platform-text">Get the app.</p>
+                <div class="platform-container">
+                    <a aria-label="Download on the App Store" class="app-store-link" href="https://itunes.apple.com/app/instagram/id389801252?pt=428156&amp;ct=igweb.loginPage.badge&amp;mt=8&amp;vt=lo" tabindex="0">
+                    <img alt="Download on the App Store" class="app-store-img " src="https://www.instagram.com/static/images/appstore-install-badges/badge_ios_english-en.png/180ae7a0bcf7.png"></a>
+                    <a aria-label="Get it on Google Play" class="google-play-link" href="https://play.google.com/store/apps/details?id=com.instagram.android&amp;referrer=utm_source%3Dinstagramweb%26utm_campaign%3DloginPage%26ig_mid%3D0D4F07F8-1BD0-40AB-8336-D387C059695A%26utm_content%3Dlo%26utm_medium%3Dbadge" tabindex="0">
+                        <img alt="Get it on Google Play" class="google-play-img" src="https://www.instagram.com/static/images/appstore-install-badges/badge_android_english-en.png/e9cd846dc748.png"></a>
+                </div>
             </div>
-
         </div>
     </article>
 </main>

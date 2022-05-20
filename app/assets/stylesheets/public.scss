@@ -2,8 +2,12 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-
-
+html {
+    height: 100%;
+  }
+  body {
+    min-height: 100%;
+  }
 .homepage-wrapper {
     display: flex;
     flex-direction: row;
@@ -11,7 +15,8 @@
     margin: 32px auto 0;
     max-width: 935px;
     padding-bottom: 32px;
-    width: 100%
+    width: 100%;
+    height: 100vh;
 }
 
 .image-container {
@@ -57,8 +62,20 @@
     margin-top: 12px;
     max-width: 350px;
     display: flex;
+    flex-direction: column;
     flex-grow: 1;
     justify-content: center;
+}
+
+.sign-in {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid rgba(219,219,219,1);
+    background-color: rgba(255,255,255,1);
+    margin-bottom: 15px;
+    padding: 15px 0;
 }
 
 .logo-container {
@@ -77,4 +94,163 @@
     margin-bottom: 10px;
     max-width: 350px;
     width: 100%;
+    flex-shrink: 0;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 24px;
+}
+
+form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+input, textarea {
+    width: 75%;
+    z-index: 2;
+    background: none;
+    outline: none;
+    border: none;
+}
+
+.field {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  .form-label {
+    position: absolute;
+    z-index: 0;
+    text-align: left;
+    width: 75%;
+    transition: transform 150ms ease-out, font-size 150ms ease-out;
+    font-size: 12px;
+  }
+
+  .focused .form-label {
+    transform: translateY(-80%);
+    font-size: 10px;
+  }
+
+  input, textarea {
+    position: relative;
+    outline: 0;
+    border: 0;
+    box-shadow: 0 1px 0 0 #e5e5e5;
+    transition: box-shadow 150ms ease-out;
+    font-size: 12px !important;
+
+    &:focus {
+      box-shadow: 0 2px 0 0 blue;
+    }
+  }
+
+  input.filled, textarea.filled {
+    box-shadow: 0 2px 0 0 lightgreen;
+  }
+
+  .actions {
+      margin: 5px 0 10px 0;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+  }
+
+  input.submit-button {
+      width: 75%;
+      background-color: rgba(0,149,246,1);
+      font-size: 14px !important;
+    font-weight: 600;
+    padding: 5px 9px;
+    text-align: center;
+    text-overflow: ellipsis;
+    line-height: 18px;
+    border-radius: 4px;
+    color: rgba(255,255,255,1)
+  }
+
+  .forgot-password {
+    display: flex;
+    align-items: center;
+    margin: 30px 0 5px 0;
+    justify-content: center;
+  }
+
+  .forgot-password-link {
+      font-size: 10px;
+      text-decoration: none;
+      color: rgba(0,149,246,1)
+  }
+
+  .sign-up {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(219,219,219,1);
+      background-color: rgba(255,255,255,1);
+      padding: 15px 0 15px 0;
+      margin-top: 20px;
+  }
+
+  .sign-up-text > a {
+      text-decoration: none;
+      color: rgba(0,149,246,1)
+  }
+
+  .sign-up-text,  .sign-up-text a {
+      font-size: 14px;
+}
+
+.platforms {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.platform-text {
+    font-size: 14px;
+}
+
+.platform-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.app-store-img, .google-play-img {
+    height: 40px;
+}
+
+.app-store-link {
+    margin-right: 8px;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.img-label {
+margin-bottom: 20px;
+z-index: 0;
+text-align: left;
+width: 75%;
+font-size: 12px;
+}
+
+#uploader-image {
+    pointer-events: fill;
+    cursor: pointer;
 }

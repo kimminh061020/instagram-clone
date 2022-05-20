@@ -1,59 +1,78 @@
-<h2>Sign up</h2>
+<article class="homepage-wrapper">
+<div class="form insta-form">
+  <div class="sign-in">
+      <div class="logo-container">
+          <div ria-disabled="false" role="button" tabindex="0" style="cursor: pointer;">
+              <img src="https://www.instagram.com/static/images/web/logged_out_wordmark.png/7a252de00b20.png" srcset="https://www.instagram.com/static/images/web/logged_out_wordmark-2x.png/d2529dbef8ed.png 2x" alt="instagram">
+          </div>
+      </div>
+      <div class="sign-in-form-container">
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+        <div class="field">
+          <%= f.label :email, class: "form-label" %>
+          <%= f.email_field :email, autocomplete: "email" %>
+        </div>
 
-<div class="form-group">
-<%= f.label :username %><br />
-<%= f.text_field :username, class: "form-control", autofocus: true %>
-</div>
+      <div class="field">
+      <%= f.label :username, class: "form-label" %>
+      <%= f.text_field :username %>
+      </div>
 
-<div class="form-group">
-<%= f.label :first_name %><br />
-<%= f.text_field :first_name %>
-</div>
+      <div class="field">
+      <%= f.label :first_name, class: "form-label" %>
+      <%= f.text_field :first_name %>
+      </div>
 
-<div class="form-group">
-<%= f.label :last_name %><br />
-<%= f.text_field :last_name %>
-</div>
-  <div class="form-group">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autocomplete: "email" %>
+      <div class="field">
+      <%= f.label :last_name, class: "form-label" %>
+      <%= f.text_field :last_name %>
+      </div>
+
+      <div class="field">
+      <label class="img-label">Upload Image</label>
+      <img id="uploader-image" src="http://via.placeholder.com/100x100" style="border-radius:50%"/>
+      <%= f.file_field :image, id: "uploader" %>
+      <%= f.hidden_field :image_cache %>
+      </div>
+
+        <div class="field">
+           <div class="form-label">Password
+          <% if @minimum_password_length %>
+          (<%= @minimum_password_length %> characters minimum)
+          <% end %>
+        </div>
+          <%= f.password_field :password, autocomplete: "new-password" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :password_confirmation, class: "form-label" %>
+          <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "Sign up", class: "submit-button"%>
+        </div>
+      <% end %>
+      </div>
+      <div class="forgot-password">
+          <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+            <%= link_to "Forgot your password?", new_password_path(resource_name), class: "forgot-password-link" %><br />
+          <% end %>
+      </div>
   </div>
-
-  <div class="form-group">
-  <%= f.label :description %><br />
-  <%= f.text_area :description, class: "form-control" %>
-</div>
-
-  <div class="form-group">
-  <%= f.label :website %><br />
-  <%= f.url_field :website, class: "form-control" %>
-</div>
-
-<div class="form-group">
-<%= f.label :image %>
-<%= f.file_field :image, class: "form-control" %>
-<%= f.hidden_field :image_cache %>
-</div>
-
-  <div class="form-group">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+  <div class="sign-up">
+      <div class="sign-up-text">Have an account? <%= link_to "Log in", root_path(resource_name) %></div><br />
   </div>
-
-  <div class="form-group">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  <div class="platforms">
+      <p class="platform-text">Get the app.</p>
+      <div class="platform-container">
+          <a aria-label="Download on the App Store" class="app-store-link" href="https://itunes.apple.com/app/instagram/id389801252?pt=428156&amp;ct=igweb.loginPage.badge&amp;mt=8&amp;vt=lo" tabindex="0">
+          <img alt="Download on the App Store" class="app-store-img " src="https://www.instagram.com/static/images/appstore-install-badges/badge_ios_english-en.png/180ae7a0bcf7.png"></a>
+          <a aria-label="Get it on Google Play" class="google-play-link" href="https://play.google.com/store/apps/details?id=com.instagram.android&amp;referrer=utm_source%3Dinstagramweb%26utm_campaign%3DloginPage%26ig_mid%3D0D4F07F8-1BD0-40AB-8336-D387C059695A%26utm_content%3Dlo%26utm_medium%3Dbadge" tabindex="0">
+              <img alt="Get it on Google Play" class="google-play-img" src="https://www.instagram.com/static/images/appstore-install-badges/badge_android_english-en.png/e9cd846dc748.png"></a>
+      </div>
   </div>
-
-  <div class="form-group">
-    <%= f.submit "Sign up", class: "btn btn-success" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>
+</article>
