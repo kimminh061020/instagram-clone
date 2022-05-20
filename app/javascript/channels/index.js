@@ -73,12 +73,16 @@ input.addEventListener('blur', (e) => {
     clearInterval(myInterval)
   }
 
+  window.addEventListener('DOMContentLoaded', (event) => {
+    startInterval()
+  })
+
 window.addEventListener('turbolinks:load', (event) => {
 
   if(document.querySelectorAll(".image-hidden").length > 0) {
     startInterval()
   }
-  else {
+  if (document.querySelectorAll(".image-hidden").length == 0 && typeof myInterval !== "undefined" ) {
     stopInterval()
   }
 })
