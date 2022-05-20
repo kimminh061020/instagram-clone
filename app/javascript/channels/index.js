@@ -49,10 +49,10 @@ input.addEventListener('blur', (e) => {
 
 
 
-
+let image_index = 1
+let image_index_blur = 0
   slider = () => {
-    let image_index = 1
-    let image_index_blur = 0
+
       let image_items = document.querySelectorAll(".image-hidden")
       image_items.forEach(image_item => {
           image_item.classList.remove("image-blur-out")
@@ -73,16 +73,12 @@ input.addEventListener('blur', (e) => {
     clearInterval(myInterval)
   }
 
-  window.addEventListener('DOMContentLoaded', (event) => {
-    startInterval()
-  })
-
 window.addEventListener('turbolinks:load', (event) => {
 
   if(document.querySelectorAll(".image-hidden").length > 0) {
     startInterval()
   }
-  if (document.querySelectorAll(".image-hidden").length == 0 && typeof myInterval !== "undefined" ) {
+  else {
     stopInterval()
   }
 })
